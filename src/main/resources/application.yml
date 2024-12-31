@@ -1,5 +1,11 @@
 server:
   port: 8081
+
+deysi:
+  client:
+    address:
+      url: http://localhost:8082/addresses/
+
 spring:
   data:
     mongodb:
@@ -9,7 +15,3 @@ spring:
       username: root
       password: example
       database: hexagonal
-deysi:
-  client:
-    address:
-      url: http://localhost:8082/addresses

@@ -16,6 +16,15 @@ public class Address {
         this.state = state;
     }
 
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                '}';
+    }
+
     public String getStreet() {
         return street;
     }

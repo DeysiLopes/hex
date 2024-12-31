@@ -19,6 +19,17 @@ public class Customer {
         this.isValidCpf = isValidCpf;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", address=" + address +
+                ", cpf='" + cpf + '\'' +
+                ", isValidCpf=" + isValidCpf +
+                '}';
+    }
+
     public String getId() {
         return id;
     }

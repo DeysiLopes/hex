@@ -38,12 +38,16 @@ public class CustomerController {
 
 
     @PostMapping
-    public ResponseEntity<Void> insert(@Valid @RequestBody CustomerRequest customerRequest){
+    public ResponseEntity<Void> insert(@Valid @RequestBody CustomerRequest customerRequest) {
+        System.out.println("Recebendo requisição: " + customerRequest);
         var customer = customerMapper.toCostumer(customerRequest);
+        System.out.println("Cliente antes do insert: " + customer);
         insertCustomerInputPort.insert(customer, customerRequest.getZipCode());
+        System.out.println("Cliente processado: " + customer);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
         return ResponseEntity.created(location).build();
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<CustomerResponse> findById(@PathVariable final String id){
