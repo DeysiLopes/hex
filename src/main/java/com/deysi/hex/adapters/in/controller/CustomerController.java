@@ -12,6 +12,9 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/api/v1/customers")
@@ -38,7 +41,8 @@ public class CustomerController {
     public ResponseEntity<Void> insert(@Valid @RequestBody CustomerRequest customerRequest){
         var customer = customerMapper.toCostumer(customerRequest);
         insertCustomerInputPort.insert(customer, customerRequest.getZipCode());
-        return ResponseEntity.ok().build();
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().build().toUri();
+        return ResponseEntity.created(location).build();
     }
 
     @GetMapping("/{id}")

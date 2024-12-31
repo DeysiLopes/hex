@@ -13,6 +13,7 @@ public class FindAddressByZipCodeAdapter implements FindAddressByZipCodeOutputPo
     @Autowired
     private FindAddessByZipCodeClient findAddessByZipCodeClient;
 
+    @Autowired
     private AddressResponseMapper addressResponseMapper;
 
     @Override
